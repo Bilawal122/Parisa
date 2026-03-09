@@ -1,0 +1,49 @@
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(50vh) rotate(360deg) translateX(30px);
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg) translateX(-20px);
+    opacity: 0;
+  }
+}
+
+.petal-float {
+  animation: petal-fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes petal-fall-alt {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(50vh) rotate(-360deg) translateX(-40px);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(110vh) rotate(-720deg) translateX(30px);
+    opacity: 0;
+  }
+}
+
+.petal-float-alt {
+  animation: petal-fall-alt linear infinite;
+  pointer-events: none;
+}

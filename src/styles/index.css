@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --color-blush: #F2B5D4;
+  --color-blush-light: #FDE2EF;
+  --color-blush-dark: #D4849B;
+  --color-sage: #A8C5A0;
+  --color-sage-light: #D4E7D0;
+  --color-sage-dark: #7BA376;
+  --color-gold: #D4A853;
+  --color-rose-gold: #C4917B;
+  --color-cream: #FFF8F0;
+  --color-cream-dark: #F5EDE3;
+  --color-charcoal: #2D2D2D;
+  --color-midnight: #1A1A2E;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-script: 'Dancing Script', cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-blush);
+  border-radius: 3px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(242, 181, 212, 0.4), 0 0 40px rgba(212, 168, 83, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(242, 181, 212, 0.6), 0 0 60px rgba(212, 168, 83, 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-gentle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}

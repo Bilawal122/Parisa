@@ -1,0 +1,16 @@
+export const wishes = [
+  "You make everything brighter",
+  "The world got luckier the day you were born",
+  "Your smile could literally end wars",
+  "You deserve every good thing that comes your way",
+  "Stay exactly who you are — you're perfect",
+  "Even your stubbornness is adorable",
+  "You're the main character and you know it",
+  "Happy birthday to the most annoyable person ever",
+  "You're the reason I believe in good people",
+  "Your laugh is my favorite sound",
+  "I hope this year brings you everything you dream of",
+  "You make the world a better place just by existing",
+  "Never change — except maybe your opinion about my jokes",
+  "You deserve all the flowers in the world",
+]

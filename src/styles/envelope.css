@@ -1,0 +1,115 @@
+.envelope-wrapper {
+  perspective: 1500px;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 640px) {
+  .envelope {
+    width: 380px;
+    height: 250px;
+  }
+}
+
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FDE2EF 0%, #F2B5D4 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 40px rgba(242, 181, 212, 0.3),
+              0 4px 12px rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, #F2B5D4 0%, #FDE2EF 100%);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  transition: transform 0.8s cubic-bezier(0.68, -0.15, 0.265, 1.35);
+  z-index: 3;
+}
+
+.envelope-flap.open {
+  transform: rotateX(-180deg);
+}
+
+.envelope-flap-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, #D4849B 0%, #C4917B 100%);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: top center;
+  z-index: 0;
+}
+
+.envelope-inner {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+  right: 8%;
+  bottom: 8%;
+  background: white;
+  border-radius: 4px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.envelope-inner.revealed {
+  transform: translateY(-85%);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  z-index: 5;
+}
+
+.wax-seal {
+  position: absolute;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #C4917B 0%, #a07060 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  color: #FFF8F0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  z-index: 4;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease;
+}
+
+.wax-seal.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .wax-seal {
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
+  }
+}
