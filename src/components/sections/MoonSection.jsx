@@ -1,10 +1,22 @@
 import { useRef, useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import MoonScene from '@components/effects/MoonScene'
 
 export default function MoonSection() {
   const [inView, setInView] = useState(false)
   const sectionRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  // Parallax: moon canvas moves slower than scroll (depth effect)
+  const moonY = useTransform(scrollYProgress, [0, 1], [60, -60])
+  // Text moves at a different rate
+  const titleY = useTransform(scrollYProgress, [0, 1], [40, -20])
+  // Section fade at edges
+  const sectionOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0.3, 1, 1, 0.3])
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,9 +44,14 @@ export default function MoonSection() {
         background: 'linear-gradient(180deg, #0D0D1A 0%, #141425 25%, #1A1A2E 50%, #141425 75%, #0D0D1A 100%)'
       }}
     >
-      <div className="relative z-10 max-w-4xl mx-auto px-4">
+      <motion.div
+        className="relative z-10 max-w-4xl mx-auto px-4"
+        style={{ opacity: sectionOpacity }}
+      >
+        {/* Title with parallax */}
         <motion.div
           className="text-center mb-6 sm:mb-10"
+          style={{ y: titleY }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -48,16 +65,19 @@ export default function MoonSection() {
           </p>
         </motion.div>
 
+        {/* Moon canvas with parallax depth */}
         {inView && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            style={{ y: moonY }}
           >
             <MoonScene width={canvasWidth} height={Math.round(canvasWidth * 1.05)} />
           </motion.div>
         )}
 
+        {/* Bottom message */}
         <motion.p
           className="text-center font-sans text-blush/35 text-sm mt-4 sm:mt-6 max-w-md mx-auto leading-relaxed"
           initial={{ opacity: 0 }}
@@ -68,7 +88,7 @@ export default function MoonSection() {
           next time you look up at the moon, just know
           I'm probably looking at the same one and thinking of you
         </motion.p>
-      </div>
+      </motion.div>
     </section>
   )
 }

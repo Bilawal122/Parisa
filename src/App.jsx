@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FloatingPetals from '@components/flowers/FloatingPetals'
+import ScrollProgress from '@components/ui/ScrollProgress'
 import HeroEnvelope from '@components/sections/HeroEnvelope'
 import FlowerGarden from '@components/sections/FlowerGarden'
 import AnnoyReasons from '@components/sections/AnnoyReasons'
@@ -13,6 +14,7 @@ export default function App() {
 
   return (
     <div className="relative">
+      {envelopeOpened && <ScrollProgress />}
       <FloatingPetals />
       <HeroEnvelope onOpen={() => setEnvelopeOpened(true)} />
       {envelopeOpened && (

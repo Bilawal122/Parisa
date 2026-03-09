@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import TurtleFlower from '@components/flowers/TurtleFlower'
 
 const flowers = [
@@ -46,6 +46,15 @@ export default function FlowerGarden() {
   const [inView, setInView] = useState(false)
   const flowerSize = typeof window !== 'undefined' && window.innerWidth < 640 ? 150 : 200
 
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  // Parallax: flowers drift up slightly as you scroll
+  const flowersY = useTransform(scrollYProgress, [0, 1], [30, -30])
+  const titleY = useTransform(scrollYProgress, [0, 1], [20, -10])
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -66,9 +75,10 @@ export default function FlowerGarden() {
       className="relative py-20 sm:py-28 overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #FFF8F0 0%, #D4E7D0 30%, #D4E7D0 70%, #FFF8F0 100%)' }}
     >
-      {/* Title */}
+      {/* Title with parallax */}
       <motion.div
         className="text-center mb-10 sm:mb-14 px-4"
+        style={{ y: titleY }}
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -82,14 +92,23 @@ export default function FlowerGarden() {
         </p>
       </motion.div>
 
-      {/* Flowers */}
-      <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 max-w-6xl mx-auto px-4">
+      {/* Flowers with parallax */}
+      <motion.div
+        className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 max-w-6xl mx-auto px-4"
+        style={{ y: flowersY }}
+      >
         {inView && flowers.map((flower, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: flower.delay * 0.4, duration: 0.6, type: 'spring' }}
+            initial={{ opacity: 0, scale: 0.5, rotate: -15 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{
+              delay: flower.delay * 0.4,
+              duration: 0.8,
+              type: 'spring',
+              stiffness: 120,
+              damping: 12,
+            }}
           >
             <TurtleFlower
               type={flower.type}
@@ -100,7 +119,7 @@ export default function FlowerGarden() {
             />
           </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Ground */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-sage/30 to-transparent" />

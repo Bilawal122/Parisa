@@ -1,9 +1,18 @@
-import { useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useMemo } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { wishes } from '@data/wishes'
 import StarField from '@components/effects/StarField'
 
 export default function BirthdayWishes() {
+  const sectionRef = useRef(null)
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  })
+
+  const starsY = useTransform(scrollYProgress, [0, 1], [40, -40])
+
   const wishCards = useMemo(() =>
     wishes.map((wish, i) => ({
       wish,
@@ -15,8 +24,10 @@ export default function BirthdayWishes() {
   )
 
   return (
-    <section className="relative py-20 sm:py-28 bg-midnight overflow-hidden min-h-screen">
-      <StarField />
+    <section ref={sectionRef} className="relative py-20 sm:py-28 bg-midnight overflow-hidden min-h-screen">
+      <motion.div style={{ y: starsY }} className="absolute inset-0">
+        <StarField />
+      </motion.div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-4">
         {/* Title */}
@@ -35,16 +46,21 @@ export default function BirthdayWishes() {
           </p>
         </motion.div>
 
-        {/* Wish cards floating in */}
+        {/* Wish cards with staggered entrances from alternating sides */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {wishCards.map(({ wish, delay }, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 60, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true, amount: 0.3 }}
+              initial={{
+                opacity: 0,
+                x: i % 3 === 0 ? -40 : i % 3 === 1 ? 0 : 40,
+                y: 50,
+                scale: 0.85,
+              }}
+              whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
-                delay: delay * 0.3,
+                delay: delay * 0.2,
                 duration: 0.7,
                 type: 'spring',
                 stiffness: 100,
