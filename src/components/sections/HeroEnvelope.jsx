@@ -62,7 +62,7 @@ export default function HeroEnvelope({ onOpen }) {
                 >
                   <p className="font-script text-gold text-lg sm:text-xl mb-1">Happy Birthday</p>
                   <h1 className="font-serif text-3xl sm:text-4xl text-charcoal font-bold">Parisa</h1>
-                  <p className="font-sans text-charcoal/50 text-xs mt-2">scroll down for your surprise</p>
+                  <p className="font-sans text-charcoal/50 text-xs mt-2">Well, here is something for you</p>
                 </motion.div>
               )}
             </AnimatePresence>

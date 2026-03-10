@@ -90,13 +90,13 @@ export default function FinalMessage() {
           >
             <Heart className="text-blush mb-6" size={36} fill="#F2B5D4" />
             <h2 className="font-serif text-3xl sm:text-5xl text-charcoal font-bold mb-4 leading-tight">
-              One last thing...
+              And for the main part
             </h2>
             <p className="font-sans text-charcoal/60 text-base sm:text-lg mb-10 max-w-md">
-              Close your eyes for a second. Think of something you really want. Then tap below.
+              Just make a wish and click the obvious button (don't miss it)
             </p>
             <MagicButton onClick={handleWish}>
-              Make a Wish ✨
+              Yes click here please ✨
             </MagicButton>
           </motion.div>
         ) : (
@@ -164,39 +164,25 @@ export default function FinalMessage() {
 
                     <div className="font-sans text-charcoal/75 text-sm sm:text-base leading-[2rem] space-y-4">
                       <p>
-                        I know I annoy you. A lot. Like, professionally at this point.
-                        But here's the thing — every message I send, every dumb meme, every
-                        voice note at the worst possible time — it's all because talking to
-                        you is genuinely the best part of my day.
+                        Happy birthday precious. Words really cannot describe what you deserve. You are an amazing friend. You are one of the only one who is so real in a world full of fakes and I have always loved that about you and its my favorite thing about you. Please keep being real and genuine. So dont change except maybe your sleep schedule.
                       </p>
                       <p>
-                        It's wild how someone I've never even been in the same room with
-                        can mean so much. Timezones tried to stop us, bad wifi tried to
-                        stop us, our sleep schedules definitely tried to stop us — and yet
-                        here we are.
+                        One year back, when I met you in the gc, I had no idea we'd ever be this close friends but damn we never know where life brings us. Im not complaining as you are one of the best friends I have made in the past year.
                       </p>
                       <p>
-                        You're kind, you're hilarious, you're way too stubborn for your
-                        own good, and you somehow put up with me on a daily basis. That
-                        last one might be your most impressive quality.
+                        You're kind, beautiful, dumb, slow, pretty, genuine, dumass, brilliant and so many words that I can say and won't be enough.
                       </p>
                       <p>
-                        I made this whole website because you deserve more than a
-                        "happy birthday" text. You deserve someone building something
-                        at an ungodly hour just because they want to make you smile.
+                        I am not good with words so I'll just say, Happy birthday Parisa and I hope you enjoyed your little gift and I hope you have many more.
                       </p>
                       <p className="font-medium text-charcoal/90">
-                        Happy birthday. I hope this year gives you everything you deserve
-                        and more. Never change. (Except maybe your sleep schedule. Please.)
+                        Also noone is beating my gift for a while so yeah. Keep smiling precious, it suits you.
                       </p>
                     </div>
 
                     <div className="mt-6 text-right">
                       <p className="font-script text-lg sm:text-xl text-blush-dark">
-                        With love (and a lot of annoyance),
-                      </p>
-                      <p className="font-script text-xl sm:text-2xl text-charcoal mt-1">
-                        — Your favorite person ♡
+                        Made by your favourite manipulator
                       </p>
                     </div>
                   </div>
@@ -225,7 +211,7 @@ export default function FinalMessage() {
                 </p>
                 <Heart className="text-blush mx-auto mb-4" size={24} fill="#F2B5D4" />
                 <p className="font-sans text-charcoal/30 text-xs">
-                  made with love (and a lot of code) from across the world
+                  made by your favourite manipulator
                 </p>
               </motion.div>
             </motion.div>

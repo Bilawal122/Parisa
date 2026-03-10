@@ -19,11 +19,7 @@ export default function InteractiveQuiz() {
     setSelected(index)
     setShowResponse(true)
 
-    if (index === question.correct) {
-      setScore(s => s + 1)
-      triggerConfetti({ particleCount: 40, spread: 60, origin: { y: 0.6 } })
-    }
-
+    // All answers are wrong — no correct answer exists
     setTimeout(() => {
       if (current < quizQuestions.length - 1) {
         setCurrent(c => c + 1)
@@ -32,14 +28,11 @@ export default function InteractiveQuiz() {
       } else {
         setFinished(true)
       }
-    }, 2200)
+    }, 2800)
   }
 
   const getResultMessage = () => {
-    const pct = score / quizQuestions.length
-    if (pct === 1) return "Perfect score! You know the deal."
-    if (pct >= 0.6) return "Pretty good! You're clearly paying attention."
-    return "We need to hang out more... for research purposes."
+    return "Told you. Not a single one right."
   }
 
   return (
@@ -54,10 +47,10 @@ export default function InteractiveQuiz() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-serif text-3xl sm:text-5xl text-charcoal font-bold mb-3">
-            The Parisa Quiz
+            Test Time
           </h2>
           <p className="font-script text-xl sm:text-2xl text-blush-dark">
-            Let's see how this goes...
+            I'll be surprised even if you get one right
           </p>
         </motion.div>
 
@@ -100,12 +93,10 @@ export default function InteractiveQuiz() {
                 {/* Options */}
                 <div className="space-y-3">
                   {question.options.map((option, i) => {
-                    const isCorrect = i === question.correct
                     const isSelected = i === selected
                     let bgClass = 'bg-white hover:bg-blush-light/30 border-blush-light/30'
                     if (selected !== null) {
-                      if (isCorrect) bgClass = 'bg-gold/20 border-gold'
-                      else if (isSelected) bgClass = 'bg-red-50 border-red-200'
+                      if (isSelected) bgClass = 'bg-red-50 border-red-200'
                     }
 
                     return (
@@ -117,7 +108,7 @@ export default function InteractiveQuiz() {
                                     font-sans text-base sm:text-lg text-charcoal cursor-pointer
                                     disabled:cursor-default ${bgClass}`}
                         animate={
-                          selected !== null && isSelected && !isCorrect
+                          selected !== null && isSelected
                             ? { x: [0, -8, 8, -8, 8, 0] }
                             : {}
                         }
@@ -144,7 +135,7 @@ export default function InteractiveQuiz() {
                       className="mt-4 p-4 rounded-xl bg-blush-light/50 border border-blush/30"
                     >
                       <p className="font-sans text-charcoal/80 text-center italic">
-                        {question.response}
+                        {question.responses ? question.responses[selected] : question.response}
                       </p>
                     </motion.div>
                   )}
@@ -160,24 +151,11 @@ export default function InteractiveQuiz() {
               >
                 <PartyPopper className="text-gold mx-auto mb-4" size={48} />
                 <h3 className="font-serif text-3xl sm:text-4xl text-charcoal font-bold mb-2">
-                  {score} / {quizQuestions.length}
+                  0 / {quizQuestions.length}
                 </h3>
                 <p className="font-script text-xl sm:text-2xl text-blush-dark mb-4">
                   {getResultMessage()}
                 </p>
-                <motion.button
-                  onClick={() => {
-                    setCurrent(0)
-                    setSelected(null)
-                    setShowResponse(false)
-                    setScore(0)
-                    setFinished(false)
-                  }}
-                  className="font-sans text-sm text-blush-dark/60 underline cursor-pointer bg-transparent border-none"
-                  whileHover={{ scale: 1.05 }}
-                >
-                  try again?
-                </motion.button>
               </motion.div>
             )}
           </AnimatePresence>

@@ -5,37 +5,37 @@ import TurtleFlower from '@components/flowers/TurtleFlower'
 const flowers = [
   {
     type: 'spiral-rose',
-    label: 'Kind',
+    label: 'Beautiful',
     colors: ['#F2B5D4', '#D4849B', '#e8a0c0'],
     delay: 0,
   },
   {
     type: 'lotus',
-    label: 'Beautiful',
+    label: 'Gorgeous',
     colors: ['#D4849B', '#C4917B', '#F2B5D4'],
     delay: 0.5,
   },
   {
     type: 'fibonacci',
-    label: 'Brilliant',
+    label: 'Pretty',
     colors: ['#D4A853', '#C4917B', '#e6bc5e'],
     delay: 1.0,
   },
   {
     type: 'maurer',
-    label: 'Hilarious',
+    label: 'Attractive voice',
     colors: ['#A8C5A0', '#7BA376', '#F2B5D4'],
     delay: 1.5,
   },
   {
     type: 'sunburst',
-    label: 'Stubborn\n(in a cute way)',
+    label: 'Dumass',
     colors: ['#C4917B', '#D4849B', '#D4A853'],
     delay: 2.0,
   },
   {
     type: 'spirograph',
-    label: 'One of a kind',
+    label: 'Cute',
     colors: ['#F2B5D4', '#D4A853', '#C4917B'],
     delay: 2.5,
   },
@@ -85,10 +85,10 @@ export default function FlowerGarden() {
         transition={{ duration: 0.8 }}
       >
         <h2 className="font-serif text-3xl sm:text-5xl text-charcoal font-bold mb-3">
-          A Garden for You
+          Custom Made Garden Just for You
         </h2>
         <p className="font-script text-xl sm:text-2xl text-sage-dark">
-          Every flower represents something about you
+          Six flowers for each day of the week
         </p>
       </motion.div>
 

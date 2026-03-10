@@ -39,7 +39,7 @@ export default function MoonSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 sm:py-24 overflow-hidden"
+      className="relative py-12 sm:py-16 overflow-hidden"
       style={{
         background: 'linear-gradient(180deg, #0D0D1A 0%, #141425 25%, #1A1A2E 50%, #141425 75%, #0D0D1A 100%)'
       }}
@@ -58,10 +58,10 @@ export default function MoonSection() {
           transition={{ duration: 1 }}
         >
           <h2 className="font-serif text-3xl sm:text-5xl text-blush-light font-bold mb-3">
-            Same Moon, Different Skies
+            Same Moon, Different Sky
           </h2>
           <p className="font-script text-xl sm:text-2xl text-blush/50">
-            wherever you are tonight, we share the same sky
+            you might have been wondering where the last day was from your garden, well this is your 7th day
           </p>
         </motion.div>
 
@@ -83,10 +83,9 @@ export default function MoonSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 4, duration: 1 }}
+          transition={{ delay: 2, duration: 1 }}
         >
-          next time you look up at the moon, just know
-          I'm probably looking at the same one and thinking of you
+          next time you look at the moon, remember that you made me love the moon even more than I already did
         </motion.p>
       </motion.div>
     </section>

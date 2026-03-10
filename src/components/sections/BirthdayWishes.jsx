@@ -39,10 +39,10 @@ export default function BirthdayWishes() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-serif text-3xl sm:text-5xl text-blush-light font-bold mb-3">
-            Birthday Wishes
+            Birthday Wishes for You
           </h2>
           <p className="font-script text-xl sm:text-2xl text-gold/70">
-            A sky full of wishes, just for you
+            take a breather to read em... you'll need it
           </p>
         </motion.div>
 

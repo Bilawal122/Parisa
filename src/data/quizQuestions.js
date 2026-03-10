@@ -1,32 +1,68 @@
 export const quizQuestions = [
   {
-    question: "What's the first thing I do when you come online?",
-    options: ["Say hi like a normal person", "Send 5 messages immediately", "Pretend I wasn't waiting", "B, but poorly disguised as C"],
-    correct: 3,
-    response: "You see right through me and we both know it."
+    question: "What is the closest to my heart?",
+    options: ["Monster", "You", "My arteries", "Table tennis"],
+    correct: -1,
+    responses: [
+      "Nah that just brings my heart closer to failure",
+      "You wish",
+      "Really? That's what you think?",
+      "Why would you even say that?? I don't even play that",
+    ],
   },
   {
-    question: "What does Parisa deserve?",
-    options: ["The world", "A million flowers", "The best birthday ever", "All of the above and more"],
-    correct: 3,
-    response: "The only correct answer. Always."
+    question: "What is the opposite of left?",
+    options: ["Right", "Not left", "Stayed", "Right"],
+    correct: -1,
+    responses: [
+      "Wrong right",
+      "I'm sure you feel smart, did you skip school?",
+      "You thought you made sense",
+      "Wrong right",
+    ],
   },
   {
-    question: "Why did I make this whole website?",
-    options: ["To flex my coding skills", "Because I care about you", "To annoy you digitally too", "B and C, obviously"],
-    correct: 3,
-    response: "I mean... at least I'm consistent across all platforms."
+    question: "What do I think about when I see the moon?",
+    options: ["About you", "About how pretty it is", "About taking a snap", "About what I'll eat today"],
+    correct: -1,
+    responses: [
+      "Keep dreaming",
+      "It is pretty but doesn't mean that's what I think",
+      "Not exactly",
+      "Why would I think of that while looking at moon??",
+    ],
   },
   {
-    question: "What's Parisa's superpower?",
-    options: ["Making everyone smile", "Being effortlessly herself", "Tolerating me across timezones", "All of the above (she's overpowered)"],
-    correct: 3,
-    response: "Seriously though, the timezone tolerance is legendary."
+    question: "Why did I make this website?",
+    options: ["To flex", "Cuz I was bored", "Cuz you deserve it", "Cuz I'm the best"],
+    correct: -1,
+    responses: [
+      "I'm not a narcissist",
+      "I wish I had time to be bored",
+      "You deserve a lot of things. Being right isn't one of them today.",
+      "I mean I am but you're wrong",
+    ],
   },
   {
-    question: "How many times a day do I think about messaging you?",
-    options: ["Once or twice", "A normal amount", "Way too many", "It's basically a full-time job"],
-    correct: 3,
-    response: "And business is BOOMING."
+    question: "How many times do I think about messaging you?",
+    options: ["All the time", "7 times a day", "Not a lot", "24/7"],
+    correct: -1,
+    responses: [
+      "Bold of you to assume I have time for that. Wrong",
+      "7? That's oddly specific and oddly wrong.",
+      "Not a lot? I'm offended AND you're wrong.",
+      "No cuz the thought never leaves my mind",
+    ],
+  },
+  {
+    question: "What do you mean to me?",
+    options: ["What?", "Everything", "Really close", "Bestie"],
+    correct: -1,
+    responses: [
+      "What?",
+      "Hold your horses pal",
+      "Allah maaf kre",
+      "Bestie? What is this, a TikTok comment section?",
+    ],
   },
 ]
